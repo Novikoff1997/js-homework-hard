@@ -1,19 +1,34 @@
 let num = 266219;
 
+// Привел число к строке что бы перебрать в цикле
 const numToString = num.toString();
+// Вичислил длиу строки
 const numLength = numToString.length;
+// Объявил пока что пустой массив
 let numsArray = [];
+// Обьявил переменную для результата перемножения.
 let result = 1;
 
+// Цикл берет каждый элемент числа и вставляет в конец массива, пока i менье длины строки с числом.
 for (let i = 0; i < numLength; i++) {
   numsArray.push(numToString[i]);
 }
+// Результат - каждая цифра числа, отдельный элемент массива, вывод в консоль.
+console.log(numsArray);
+
+/*Цикл берет каждый элемент получившегося массива, и умножает его на значние переменной result пока i меньше чем количество элементов в массие. */
 for (let i = 0; i < numsArray.length; i++) {
   result = numsArray[i] * result;
 }
+// Результат - все цифры числа перемножены, вывод в консоль.
 console.log(result);
 
+// Переменная resultExp принимает результат возведения получившегося при умножении числа в степень.
 let resultExp = result ** 3;
-let resultExptoString = resultExp.toString();
+// Приводим значение переменной resultExp к строке что бы отобразить только первую и вторую цифры.
+let resultExpToString = resultExp.toString();
 
-console.log(resultExptoString[1], resultExptoString[0]);
+// Результат операции возведения в степень. Вывод в консоль.
+console.log("Возведение в степень: " + resultExp);
+// Вывод в консоль первых двух цифр получившегося после возведения в степень числа.
+console.log(resultExpToString[1], resultExpToString[0]);
