@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+.weeksAlert {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.weeksAlertWrapper {
+  padding: 0.9375rem;
+  background-color: #999999;
+}
+.langButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.button {
+  padding: 0.3125rem 1rem;
+  background-color: green;
+  border-radius: 0.3125rem;
+  color: #fff;
+}
+.button:hover {
+  background-color: rgb(0, 98, 0);
+  cursor: pointer;
+}
