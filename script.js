@@ -5,16 +5,18 @@
 // Сделал небольшой интерфейс для выбора языка
 const languageSelection = () => {
   // Объект weeks со свойствами ru и en которые содержат массивы с днями недели.
-  let weeks = {
-    ru: ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскреенье"],
-    en: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-  };
+  let weeks = [
+    ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскреенье"],
+    ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+  ];
+
   // Вешаем на документ событие клик
   document.addEventListener("click", (event) => {
     // Проверяем что то по чему мы кликнули действительно кнопка, иначе будет ошибка
     if (event.target.className == "button") {
       // приставиваем переменной lang значенеи атрибута id того элемента по которому кликнули
-      let lang = event.target.id;
+      let lang;
+      event.target.id == "ru" ? (lang = 0) : (lang = 1);
       /* Функция вывода дней недели в зависимости от выбранного языка. Получаем свойство объекта,проходимся по всем эллементам массива который он сожержит и выводим каждый элемент. */
       const weekLog = (lang) => {
         weeks[lang].forEach((weekDay) => {
