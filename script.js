@@ -1,13 +1,19 @@
-"use strict";
-let string = prompt("Введите строку:");
+let arr = [244, 5555, 4326, 76584, 342, 256, 999];
 
-const toString = (string) => {
-  if (string === string.toString()) {
-    string.trim();
-    string.length > 30 ? console.log(string.slice(0, 30) + "...") : console.log(string);
-  } else {
-    console.log("Передана не строка");
+arr.forEach((num) => {
+  if (num.toString()[0] === "2" || num.toString()[0] === "4") {
+    console.log(num);
   }
-};
+});
 
-toString(string);
+for (let i = 2; i < 101; i++) {
+  let count = 0;
+  for (let num = 1; num <= i; num++) {
+    if (i % num == 0) {
+      count++;
+    }
+  }
+  if (count == 2) {
+    console.log(i + " - Делители этого числа: 1 и " + i);
+  }
+}
