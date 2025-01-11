@@ -8,9 +8,12 @@ arr.forEach((num) => {
 
 for (let i = 2; i < 101; i++) {
   let count = 0;
-  for (let num = 1; num <= i; num++) {
+  for (let num = 1; num * num <= i; num++) {
     if (i % num == 0) {
       count++;
+      if (num != i / num) {
+        count++;
+      }
     }
   }
   if (count == 2) {
