@@ -1,22 +1,18 @@
-let arr = [244, 5555, 4326, 76584, 342, 256, 999];
+"use strict";
+const week = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"];
+const today = new Date();
 
-arr.forEach((num) => {
-  if (num.toString()[0] === "2" || num.toString()[0] === "4") {
-    console.log(num);
-  }
-});
-
-for (let i = 2; i < 101; i++) {
-  let count = 0;
-  for (let num = 1; num * num <= i; num++) {
-    if (i % num == 0) {
-      count++;
-      if (num != i / num) {
-        count++;
-      }
+week.forEach((value, index) => {
+  if (today.getDay() === index + 1) {
+    document.write("<b>" + value + "</b>");
+    document.write("<br><hr>");
+  } else {
+    if (index + 1 === 6 || index + 1 === 7) {
+      document.write("<i>" + value + "</i>");
+      document.write("<br><hr>");
+    } else {
+      document.write(value);
+      document.write("<br><hr>");
     }
   }
-  if (count == 2) {
-    console.log(i + " - Делители этого числа: 1 и " + i);
-  }
-}
+});
