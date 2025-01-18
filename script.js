@@ -10,14 +10,15 @@ const dataToPage = () => {
   const hour = date.getHours();
   const minutes = date.getMinutes();
   const seconds = date.getSeconds();
-  let readyDate;
-  let readyTime;
 
   let dataDay;
   let dateYear;
   let dateHours;
   let dateMinutes;
   let dateSeconds;
+
+  let readyDate;
+  let readyTime;
 
   const daysOfWeek = [
     "Воскресенье",
