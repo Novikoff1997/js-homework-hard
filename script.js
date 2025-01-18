@@ -19,6 +19,8 @@ const dataToPage = () => {
 
   let readyDate;
   let readyTime;
+  let readyDate2;
+  let readyTime2;
 
   const daysOfWeek = [
     "Воскресенье",
@@ -111,12 +113,14 @@ const dataToPage = () => {
   dateMinutes = minutes + " " + declineMinutes(minutes) + " ";
   dateSeconds = seconds + " " + declineSeconds(seconds) + " ";
 
-  readyDate = addZero(day) + "." + addZero(month) + "." + year;
-  readyTime = addZero(hour) + ":" + addZero(minutes) + ":" + addZero(seconds) + " ";
+  readyDate = dataDay + dateYear;
+  readyTime = dateHours + dateMinutes + dateSeconds;
 
-  dateElement.textContent =
-    "Сегодня " + dataDay + " " + dateYear + dateHours + dateMinutes + dateSeconds;
-  dateElement2.textContent = readyTime + readyDate;
+  readyDate2 = addZero(day) + "." + addZero(month) + "." + year;
+  readyTime2 = addZero(hour) + ":" + addZero(minutes) + ":" + addZero(seconds) + " ";
+
+  dateElement.textContent = "Сегодня " + readyDate + readyTime;
+  dateElement2.textContent = readyTime2 + readyDate2;
 };
 
 setInterval(() => {
