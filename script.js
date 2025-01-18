@@ -45,6 +45,9 @@ const dataToPage = () => {
     "Ноябрь",
     "Декабрь",
   ];
+  const hoursForm = ["час", "часа", "часов"];
+  const minutesForm = ["минута", "минуты", "минут"];
+  const secondsForm = ["секунда", "секунды", "секунд"];
 
   const getMonthDeclension = (months) => {
     let month;
@@ -63,41 +66,19 @@ const dataToPage = () => {
     });
     return month;
   };
-  const declineHours = (hour) => {
-    if (hour == 1 || hour == 21) {
-      return "час";
-    } else if (hour >= 2 && hour <= 4) {
-      return "часа";
-    } else if (hour == 22 || hour == 23) {
-      return "часа";
-    } else {
-      return "часов";
+
+  const declineNumber = (number, form) => {
+    const lastDigit = number % 10; // Проверяем последнюю цифру
+    const secondLastDigit = Math.floor(number / 10) % 10; // Проверяем предпоследнюю цифру
+    if (secondLastDigit === 1 && lastDigit >= 0 && lastDigit <= 9) {
+      return form[2];
     }
-  };
-  const declineMinutes = (minutes) => {
-    if (minutes > 4 && minutes < 21) {
-      return "минут";
-    } else if (minutes.toString().slice(-1) >= 5 || minutes.toString().slice(-1) == 0) {
-      return "минут";
-    } else if (minutes.toString().slice(-1) >= 2 && minutes.toString().slice(-1) <= 4) {
-      return "минуты";
-    } else if (minutes.toString().slice(-1) == 1) {
-      return "минута";
+    if (lastDigit === 1) {
+      return form[0];
+    } else if (lastDigit > 1 && lastDigit < 5) {
+      return form[1];
     } else {
-      return "минуты";
-    }
-  };
-  const declineSeconds = (seconds) => {
-    if (seconds > 4 && seconds < 21) {
-      return "секунд";
-    } else if (seconds.toString().slice(-1) >= 5 || seconds.toString().slice(-1) == 0) {
-      return "секунд";
-    } else if (seconds.toString().slice(-1) >= 2 && seconds.toString().slice(-1) <= 4) {
-      return "секунды";
-    } else if (seconds.toString().slice(-1) == 1) {
-      return "секунда";
-    } else {
-      return "секунды";
+      return form[2];
     }
   };
   const addZero = (element) => {
@@ -109,9 +90,9 @@ const dataToPage = () => {
 
   dataDay = daysOfWeek[date.getDay()] + ", ";
   dateYear = month + " " + getMonthDeclension(months) + " " + year + " года ";
-  dateHours = hour + " " + declineHours(hour) + " ";
-  dateMinutes = minutes + " " + declineMinutes(minutes) + " ";
-  dateSeconds = seconds + " " + declineSeconds(seconds) + " ";
+  dateHours = hour + " " + declineNumber(hour, hoursForm) + " ";
+  dateMinutes = minutes + " " + declineNumber(minutes, minutesForm) + " ";
+  dateSeconds = seconds + " " + declineNumber(seconds, secondsForm) + " ";
 
   readyDate = dataDay + dateYear;
   readyTime = dateHours + dateMinutes + dateSeconds;
