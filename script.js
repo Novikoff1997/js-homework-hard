@@ -12,7 +12,6 @@ const dataToPage = () => {
   const seconds = date.getSeconds();
   let readyDate;
   let readyTime;
-  console.log(month);
 
   let dataDay;
   let dateYear;
